@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Awesome_Time.Models
+namespace Awesome_Time.ViewModels
 {
     public class ExternalLoginConfirmationViewModel
     {

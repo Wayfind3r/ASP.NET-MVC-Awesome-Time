@@ -8,7 +8,8 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using Awesome_Time.Models;
+using Awesome_Time.Entities;
+using Awesome_Time.ViewModels;
 
 namespace Awesome_Time.Controllers
 {

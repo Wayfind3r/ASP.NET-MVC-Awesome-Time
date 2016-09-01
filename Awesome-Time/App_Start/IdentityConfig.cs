@@ -10,7 +10,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
-using Awesome_Time.Models;
+using Awesome_Time.Entities;
 
 namespace Awesome_Time
 {

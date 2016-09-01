@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 
-namespace Awesome_Time.Models
+namespace Awesome_Time.ViewModels
 {
     public class IndexViewModel
     {

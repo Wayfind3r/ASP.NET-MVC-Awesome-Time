@@ -15,6 +15,8 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
+//Example: http://stackoverflow.com/questions/19476856/how-to-configure-structuremap-for-asp-net-mvc-5
+
 using StructureMap;
 using StructureMap.Graph;
 

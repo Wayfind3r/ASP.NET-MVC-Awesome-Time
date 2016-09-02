@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.ComponentModel.DataAnnotations;
 
 namespace Awesome_Time.Entities
 {
@@ -16,6 +17,16 @@ namespace Awesome_Time.Entities
             // Add custom user claims here
             return userIdentity;
         }
+
+        [MaxLength(50)]
+        public string GivenName { get; set; }
+        [MaxLength(50)]
+        public string FamilyName { get; set; }
+        [MaxLength(80)]
+        public string TwitterAccount { get; set; }
+        [MaxLength(12)]
+        public string AwesomenessNumber { get; set; }
+        
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>

@@ -234,6 +234,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201609011400533_InitialCreate.cs" />
+    <Compile Include="Migrations\201609011400533_InitialCreate.Designer.cs">
+      <DependentUpon>201609011400533_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609021456527_Initial-Registration.cs" />
+    <Compile Include="Migrations\201609021456527_Initial-Registration.Designer.cs">
+      <DependentUpon>201609021456527_Initial-Registration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
     <Compile Include="Entities\IdentityModels.cs" />
     <Compile Include="ViewModels\ManageViewModels.cs" />
@@ -334,6 +343,14 @@
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-3.1.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.0.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201609011400533_InitialCreate.resx">
+      <DependentUpon>201609011400533_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609021456527_Initial-Registration.resx">
+      <DependentUpon>201609021456527_Initial-Registration.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

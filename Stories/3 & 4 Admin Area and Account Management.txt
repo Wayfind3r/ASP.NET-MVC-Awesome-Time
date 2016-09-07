@@ -1,0 +1,9 @@
+3. Administrator(Admin) Area:
+
+ Administrator type users can go to an Admin Area
+ The Admin Area should allow administrators to manage the site
+ 
+4. Account Management:
+
+ In the Admin Area administrators can navigate to a page that displays all the users registered on the website
+ Administrators can edit any user's details from that page (including changing passwords)

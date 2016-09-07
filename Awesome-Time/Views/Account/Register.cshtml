@@ -9,7 +9,6 @@
     @Html.AntiForgeryToken()
     <h4>Create a new account.</h4>
         <hr />
-        //@Html.ValidationSummary("", new { @class = "text-danger" })
         <div class="form-group">
             @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = Html.DisplayNameFor(x => x.Email) })
             @Html.ValidationMessageFor(x => x.Email, null, new { @class = "text-danger" })

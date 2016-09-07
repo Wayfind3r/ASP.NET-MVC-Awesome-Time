@@ -103,6 +103,9 @@ namespace Awesome_Time.ViewModels
         [Display(Name = "Awesomeness Number {year (4 digits)}BA-{3 utility digits}{2 English characters}")]
         [RegularExpression(@"^[0-9]{4}BA-[0-9]{3}[a-zA-Z]{2}$", ErrorMessage = "Awesomeness Number format is: {{year (4 digits)}}BA-{{3 utility digits}}{{2 English characters}}")]
         public string AwesomenessNumber { get; set; }
+
+        [Range(typeof(bool), "true","true", ErrorMessage ="Please agree to our Terms and Conditions")]
+        public bool AgreeToTermsAndConditions { get; set; }
     }
 
     public class ResetPasswordViewModel

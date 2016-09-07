@@ -26,5 +26,10 @@ namespace Awesome_Time.Controllers
 
             return View();
         }
+
+        public ActionResult TermsAndConditions()
+        {
+            return View();
+        }
     }
 }

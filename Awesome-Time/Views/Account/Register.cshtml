@@ -5,37 +5,52 @@
 
 @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal minimalistic-form", role = "form" }))
 {
-        <h2>@ViewBag.Title.</h2>
-        @Html.AntiForgeryToken()
-        <h4>Create a new account.</h4>
+    <h2>@ViewBag.Title.</h2>
+    @Html.AntiForgeryToken()
+    <h4>Create a new account.</h4>
         <hr />
-        @Html.ValidationSummary("", new { @class = "text-danger" })
+        //@Html.ValidationSummary("", new { @class = "text-danger" })
         <div class="form-group">
             @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = Html.DisplayNameFor(x => x.Email) })
+            @Html.ValidationMessageFor(x => x.Email, null, new { @class = "text-danger" })
         </div>
         <div class="form-group">
             @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = Html.DisplayNameFor(x => x.Password) })
+            @Html.ValidationMessageFor(x => x.Password, null, new { @class = "text-danger" })
         </div>
         <div class="form-group">
             @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", placeholder = Html.DisplayNameFor(x => x.ConfirmPassword) })
+            @Html.ValidationMessageFor(x => x.ConfirmPassword, null, new { @class = "text-danger" })
         </div>
         <div class="form-group">
             @Html.TextBoxFor(m => m.FamilyName, new { @class = "form-control", placeholder = Html.DisplayNameFor(x => x.FamilyName) })
+            @Html.ValidationMessageFor(x => x.FamilyName, null, new { @class = "text-danger" })
         </div>
         <div class="form-group">
             @Html.TextBoxFor(m => m.GivenName, new { @class = "form-control", placeholder = Html.DisplayNameFor(x => x.GivenName) })
+            @Html.ValidationMessageFor(x => x.GivenName, null, new { @class = "text-danger" })
         </div>
         <div class="form-group">
             @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control", placeholder = Html.DisplayNameFor(x => x.PhoneNumber) })
+            @Html.ValidationMessageFor(x => x.PhoneNumber, null, new { @class = "text-danger" })
         </div>
         <div class="form-group">
             @Html.TextBoxFor(m => m.TwitterAccount, new { @class = "form-control", placeholder = Html.DisplayNameFor(x => x.TwitterAccount) })
+            @Html.ValidationMessageFor(x => x.TwitterAccount, null, new { @class = "text-danger" })
         </div>
         <div class="form-group">
             @Html.TextAreaFor(m => m.AwesomenessNumber, new { @class = "form-control", placeholder = Html.DisplayNameFor(x => x.AwesomenessNumber) })
+            @Html.ValidationMessageFor(x => x.AwesomenessNumber, null, new { @class = "text-danger" })
         </div>
         <div class="form-group">
-                <input type="submit" class="btn btn-default" value="Register" />
+            @Html.CheckBoxFor(m => m.AgreeToTermsAndConditions, new { @class = "" })
+            <span>I Agree to the @Html.ActionLink("Terms and Conditions", "TermsAndConditions", "Home")</span>
+            <p>
+                @Html.ValidationMessageFor(x => x.AgreeToTermsAndConditions, null, new { @class = "text-danger" })
+            </p>
+        </div>
+        <div class="form-group">
+            <input type="submit" class="btn btn-default" value="Register" />
         </div>
 }
 

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System;
 
 namespace Awesome_Time.ViewModels
 {
@@ -135,5 +136,93 @@ namespace Awesome_Time.ViewModels
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
+    }
+
+    public class EditableAccountViewModel
+    {
+        [Required]
+        public string UserId { get; set; }
+
+        [Required]
+        [EmailAddress]
+        [Display(Name = "Email")]
+        public string Email { get; set; }
+
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [DataType(DataType.Password)]
+        [Display(Name = "Password")]
+        public string NewPassword { get; set; }
+
+        [DataType(DataType.Password)]
+        [Display(Name = "Confirm password")]
+        [Compare("NewPassword", ErrorMessage = "The password and confirmation password do not match.")]
+        public string ConfirmPassword { get; set; }
+
+        [Display(Name = "Mobile Number")]
+        [MaxLength(20)]
+        public string PhoneNumber { get; set; }
+
+        [Required]
+        [MaxLength(50)]
+        [Display(Name = "Given Name")]
+        public string GivenName { get; set; }
+
+        [Required]
+        [MaxLength(50)]
+        [Display(Name = "Family Name")]
+        public string FamilyName { get; set; }
+
+        [MaxLength(80)]
+        [Display(Name = "Twitter Account")]
+        public string TwitterAccount { get; set; }
+
+        [Required]
+        [MaxLength(12)]
+        [Display(Name = "Awesomeness Number {year (4 digits)}BA-{3 utility digits}{2 English characters}")]
+        [RegularExpression(@"^[0-9]{4}BA-[0-9]{3}[a-zA-Z]{2}$", ErrorMessage = "Awesomeness Number format is: {{year (4 digits)}}BA-{{3 utility digits}}{{2 English characters}}")]
+        public string AwesomenessNumber { get; set; }
+
+        [Required]
+        [Display(Name = "Registration Date")]
+        public DateTime RegistrationDate { get; set; }
+    }
+
+    public class AccountTableViewModel
+    {
+        [Required]
+        public string UserId { get; set; }
+
+        [Required]
+        [EmailAddress]
+        [Display(Name = "Email")]
+        public string Email { get; set; }
+
+        [Display(Name = "Mobile Number")]
+        [MaxLength(20)]
+        public string PhoneNumber { get; set; }
+
+        [Required]
+        [MaxLength(50)]
+        [Display(Name = "Given Name")]
+        public string GivenName { get; set; }
+
+        [Required]
+        [MaxLength(50)]
+        [Display(Name = "Family Name")]
+        public string FamilyName { get; set; }
+
+        [MaxLength(80)]
+        [Display(Name = "Twitter Account")]
+        public string TwitterAccount { get; set; }
+
+        [Required]
+        [MaxLength(12)]
+        [Display(Name = "Awesomeness Number {year (4 digits)}BA-{3 utility digits}{2 English characters}")]
+        [RegularExpression(@"^[0-9]{4}BA-[0-9]{3}[a-zA-Z]{2}$", ErrorMessage = "Awesomeness Number format is: {{year (4 digits)}}BA-{{3 utility digits}}{{2 English characters}}")]
+        public string AwesomenessNumber { get; set; }
+
+        [Required]
+        [Display(Name = "Registration Date")]
+        public DateTime RegistrationDate { get; set; }
     }
 }

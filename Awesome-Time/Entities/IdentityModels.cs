@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.ComponentModel.DataAnnotations;
+using System;
 
 namespace Awesome_Time.Entities
 {
@@ -26,6 +27,8 @@ namespace Awesome_Time.Entities
         public string TwitterAccount { get; set; }
         [MaxLength(12)]
         public string AwesomenessNumber { get; set; }
+
+        public DateTime RegistrationDate { get; set; }
         
     }
 

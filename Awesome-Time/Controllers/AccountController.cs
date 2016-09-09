@@ -160,7 +160,8 @@ namespace Awesome_Time.Controllers
                     AwesomenessNumber = model.AwesomenessNumber,
                     TwitterAccount = model.TwitterAccount,
                     GivenName = model.GivenName,
-                    FamilyName = model.FamilyName
+                    FamilyName = model.FamilyName,
+                    RegistrationDate = DateTime.Now
                 };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)

@@ -19,6 +19,8 @@
 
 using StructureMap;
 using StructureMap.Graph;
+using Awesome_Time.Interfaces;
+using Awesome_Time.Services;
 
 namespace Awesome_Time.DependencyResolution {
     public static class IoC {
@@ -30,7 +32,8 @@ namespace Awesome_Time.DependencyResolution {
                                         scan.TheCallingAssembly();
                                         scan.WithDefaultConventions();
                                     });
-            //                x.For<IExample>().Use<Example>();
+                            //                x.For<IExample>().Use<Example>();
+                            x.For<IAccountService>().Use<AccountService>();
                         });
             return ObjectFactory.Container;
         }

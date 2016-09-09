@@ -138,7 +138,7 @@ namespace Awesome_Time.ViewModels
         public string Email { get; set; }
     }
 
-    public class EditableAccountViewModel
+    public class UpdateAccountViewModel
     {
         [Required]
         public string UserId { get; set; }

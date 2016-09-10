@@ -1,0 +1,106 @@
+﻿@using System.Runtime;
+@using System.Collections;
+@using System.Collections.Generic;
+@model Awesome_Time.ViewModels.AccountTableViewModel
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Content[0].Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Content[0].PhoneNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Content[0].GivenName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Content[0].FamilyName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Content[0].TwitterAccount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Content[0].AwesomenessNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Content[0].RegistrationDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.Content) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhoneNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GivenName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FamilyName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TwitterAccount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AwesomenessNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RegistrationDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+    
+</table>
+
+<div>
+    <!-- pager -->
+    @if (Model.Pager.EndPage > 0)
+    {
+        <ul class="pagination">
+            @if (Model.Pager.CurrentPage > 1)
+            {
+                <li>
+                    <a href="~/ManageAccounts/List?email=@Model.EmailFilter">First</a>
+                </li>
+                            <li>
+                                <a href="~/ManageAccounts/List?page=@(Model.Pager.CurrentPage - 1)&pageSize=@Model.Pager.PageSize&email=@Model.EmailFilter">Previous</a>
+                            </li>
+            }
+
+            @for (var page = Model.Pager.StartPage; page <= Model.Pager.EndPage; page++)
+            {
+                <li class="@(page == Model.Pager.CurrentPage ? "active" : "")">
+                    <a href="~/ManageAccounts/List?page=@page&pageSize=@Model.Pager.PageSize&email=@Model.EmailFilter">@page</a>
+                </li>}
+
+            @if (Model.Pager.CurrentPage < Model.Pager.TotalPages)
+            {
+                <li>
+                    <a href="~/ManageAccounts/List?page=@(Model.Pager.CurrentPage + 1)&pageSize=@Model.Pager.PageSize&email=@Model.EmailFilter">Next</a>
+                </li>
+                            <li>
+                                <a href="~/ManageAccounts/List?page=@(Model.Pager.TotalPages)&pageSize=@Model.Pager.PageSize&email=@Model.EmailFilter">Last</a>
+                            </li>
+            }
+        </ul>
+    }		
+</div>

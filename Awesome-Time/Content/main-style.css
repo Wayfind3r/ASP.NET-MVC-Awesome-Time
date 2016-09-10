@@ -126,11 +126,11 @@ textarea {
       margin: 40px 10% 0 10%; } }
   @media only screen and (min-width: 768px) {
     .form-middle-sm {
-      margin: 10% 15%; } }
+      margin: 8% 15%; } }
   @media only screen and (min-width: 992px) {
     .form-middle-sm {
-      margin: 10% 20%; } }
+      margin: 8% 20%; } }
   @media only screen and (min-width: 1200px) {
     .form-middle-sm {
-      margin: 10% 25%; } }
+      margin: 8% 25%; } }
 

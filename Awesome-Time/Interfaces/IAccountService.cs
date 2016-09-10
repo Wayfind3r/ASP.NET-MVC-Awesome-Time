@@ -1,6 +1,6 @@
 ﻿using System;
 using Awesome_Time.ViewModels;
-using X.PagedList;
+using System.Collections.Generic;
 using Awesome_Time.ServiceClasses.AccountServiceClasses;
 using Awesome_Time.Entities;
 
@@ -10,7 +10,7 @@ namespace Awesome_Time.Interfaces
     {
         UpdateAccountResult UpdateAccount(UpdateAccountViewModel model);
 
-        IPagedList<AccountTableViewModel> GetAccounts(string email, int page, int pageSize);
+        AccountTableViewModel GetAccounts(string email, int page, int pageSize);
 
         bool TryRegisterAccount(ApplicationUser user, string plainPassword);
     }

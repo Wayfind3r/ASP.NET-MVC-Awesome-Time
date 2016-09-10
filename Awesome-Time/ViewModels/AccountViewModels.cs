@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System;
+using Awesome_Time.ServiceClasses;
 
 namespace Awesome_Time.ViewModels
 {
@@ -101,7 +102,7 @@ namespace Awesome_Time.ViewModels
 
         [Required]
         [MaxLength(12)]
-        [Display(Name = "Awesomeness Number {year (4 digits)}BA-{3 utility digits}{2 English characters}")]
+        [Display(Name = "Awesomeness Number", Description = "Awesomeness Number {year (4 digits)}BA-{3 utility digits}{2 English characters}")]
         [RegularExpression(@"^[0-9]{4}BA-[0-9]{3}[a-zA-Z]{2}$", ErrorMessage = "Awesomeness Number format is: {{year (4 digits)}}BA-{{3 utility digits}}{{2 English characters}}")]
         public string AwesomenessNumber { get; set; }
 
@@ -178,7 +179,7 @@ namespace Awesome_Time.ViewModels
 
         [Required]
         [MaxLength(12)]
-        [Display(Name = "Awesomeness Number {year (4 digits)}BA-{3 utility digits}{2 English characters}")]
+        [Display(Name = "Awesomeness Number", Description = "Awesomeness Number {year (4 digits)}BA-{3 utility digits}{2 English characters}")]
         [RegularExpression(@"^[0-9]{4}BA-[0-9]{3}[a-zA-Z]{2}$", ErrorMessage = "Awesomeness Number format is: {{year (4 digits)}}BA-{{3 utility digits}}{{2 English characters}}")]
         public string AwesomenessNumber { get; set; }
 
@@ -188,6 +189,23 @@ namespace Awesome_Time.ViewModels
     }
 
     public class AccountTableViewModel
+    {
+        private AccountTableViewModel(){}
+        public AccountTableViewModel(List<AccountTableRowViewModel> tableContent, int totalItems, int page, int pageSize, string emailFilter)
+        {
+            Content = tableContent;
+            Pager = new Pager(totalItems, page, pageSize);
+            EmailFilter = emailFilter;
+        }
+
+        public List<AccountTableRowViewModel> Content { get; set; }
+
+        public Pager Pager { get; set; }
+
+        public string EmailFilter { get; set; }
+    }
+
+    public class AccountTableRowViewModel
     {
         [Required]
         public string UserId { get; set; }
@@ -217,7 +235,7 @@ namespace Awesome_Time.ViewModels
 
         [Required]
         [MaxLength(12)]
-        [Display(Name = "Awesomeness Number {year (4 digits)}BA-{3 utility digits}{2 English characters}")]
+        [Display(Name = "Awesomeness Number", Description = "Awesomeness Number {year (4 digits)}BA-{3 utility digits}{2 English characters}")]
         [RegularExpression(@"^[0-9]{4}BA-[0-9]{3}[a-zA-Z]{2}$", ErrorMessage = "Awesomeness Number format is: {{year (4 digits)}}BA-{{3 utility digits}}{{2 English characters}}")]
         public string AwesomenessNumber { get; set; }
 

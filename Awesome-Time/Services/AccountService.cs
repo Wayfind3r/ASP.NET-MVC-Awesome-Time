@@ -4,9 +4,7 @@ using Awesome_Time.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using X.PagedList;
 using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
 using System.Web;
 using Microsoft.AspNet.Identity.Owin;
 using Awesome_Time.ServiceClasses.AccountServiceClasses;
@@ -22,9 +20,17 @@ namespace Awesome_Time.Services
             db = context;
         }
 
-        public IPagedList<AccountTableViewModel> GetAccounts(string email, int page, int pageSize)
+        public AccountTableViewModel GetAccounts(string email, int page, int pageSize)
         {
-            var result = db.Users.Select(u => new AccountTableViewModel
+            var query = db.Users.AsQueryable();
+
+            if (!String.IsNullOrEmpty(email))
+            {
+                query = query.Where(x => x.Email.Contains(email));
+            }
+
+            var tableContent = query
+                .Select(u => new AccountTableRowViewModel
             {
                 AwesomenessNumber = u.AwesomenessNumber,
                 TwitterAccount = u.TwitterAccount,
@@ -35,7 +41,14 @@ namespace Awesome_Time.Services
                 RegistrationDate = u.RegistrationDate,
                 UserId = u.Id
             })
-            .ToPagedList(page, pageSize);
+            .OrderBy(x=>x.RegistrationDate)
+            .Skip((page-1)*pageSize)
+            .Take(pageSize)
+            .ToList();
+
+            var totalResults = query.Count();
+
+            var result = new AccountTableViewModel(tableContent, totalResults, page, pageSize, email);
 
             return result;
         }

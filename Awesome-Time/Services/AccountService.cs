@@ -8,6 +8,7 @@ using Microsoft.AspNet.Identity;
 using System.Web;
 using Microsoft.AspNet.Identity.Owin;
 using Awesome_Time.ServiceClasses.AccountServiceClasses;
+using Awesome_Time.Enumerations;
 
 namespace Awesome_Time.Services
 {
@@ -53,7 +54,31 @@ namespace Awesome_Time.Services
             return result;
         }
 
-        public UpdateAccountResult UpdateAccount(UpdateAccountViewModel model)
+        public UpdateAccountViewModel GetAccountViewModel(string accountId)
+        {
+            var applicationUserManager = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>();
+
+            var user = applicationUserManager.FindById(accountId);
+
+            var result = new UpdateAccountViewModel
+            {
+                AwesomenessNumber = user.AwesomenessNumber,
+                TwitterAccount = user.TwitterAccount,
+                NewPassword = null,
+                ConfirmPassword = null,
+                Email = user.Email,
+                FamilyName = user.FamilyName,
+                GivenName = user.GivenName,
+                PhoneNumber = user.PhoneNumber,
+                RegistrationDate = user.RegistrationDate,
+                UserId = user.Id,
+                Errors = new List<string>()
+            };
+
+            return result;
+        }
+
+        public UpdateAccountServiceResult UpdateAccount(UpdateAccountViewModel model)
         {
             var applicationUserManager = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>();
 
@@ -66,15 +91,38 @@ namespace Awesome_Time.Services
             user.PhoneNumber = model.PhoneNumber;
             user.RegistrationDate = model.RegistrationDate;
             user.TwitterAccount = model.TwitterAccount;
-            user.PasswordHash = applicationUserManager.PasswordHasher.HashPassword(model.NewPassword);
 
-            var updateResult = applicationUserManager.UpdateAsync(user).Result;
-
-            var result = new UpdateAccountResult
+            var result = new UpdateAccountServiceResult
             {
-                Succeeded = updateResult.Succeeded,
-                Errors = updateResult.Errors
+                Succeeded = AccountUpdateResult.Failed,
+                Errors = new List<string>()
             };
+
+            if(!string.IsNullOrEmpty(model.NewPassword) && model.NewPassword == model.ConfirmPassword)
+            {
+                //Validate password
+                var validatePasswordResult = applicationUserManager.PasswordValidator.ValidateAsync(model.NewPassword).Result;
+
+                if(validatePasswordResult.Succeeded)
+                {
+                    user.PasswordHash = applicationUserManager.PasswordHasher.HashPassword(model.NewPassword);
+                    //Update User and change password
+                    var updateResult = applicationUserManager.UpdateAsync(user).Result;
+                    result.Succeeded = (AccountUpdateResult)Convert.ToInt32(updateResult.Succeeded);
+                    result.Errors = updateResult.Errors;
+                }
+                else
+                {
+                    result.Succeeded = AccountUpdateResult.InvalidPassword;
+                    result.Errors = validatePasswordResult.Errors;
+                }
+            }
+            else
+            {//Update user without changing password
+                var updateResult = applicationUserManager.UpdateAsync(user).Result;
+                result.Succeeded = (AccountUpdateResult)Convert.ToInt32(updateResult.Succeeded);
+                result.Errors = updateResult.Errors;
+            }
 
             return result;
         }

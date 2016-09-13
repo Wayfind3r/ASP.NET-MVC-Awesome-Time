@@ -141,6 +141,13 @@ namespace Awesome_Time.ViewModels
 
     public class UpdateAccountViewModel
     {
+        public UpdateAccountViewModel()
+        {
+            Errors = new List<string>();
+        }
+
+        public List<string> Errors { get; set; }
+
         [Required]
         public string UserId { get; set; }
 
@@ -149,13 +156,12 @@ namespace Awesome_Time.ViewModels
         [Display(Name = "Email")]
         public string Email { get; set; }
 
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "New Password", Description = "Optional")]
         public string NewPassword { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
+        [Display(Name = "Confirm password", Description = "Optional")]
         [Compare("NewPassword", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
 
@@ -179,7 +185,7 @@ namespace Awesome_Time.ViewModels
 
         [Required]
         [MaxLength(12)]
-        [Display(Name = "Awesomeness Number", Description = "Awesomeness Number {year (4 digits)}BA-{3 utility digits}{2 English characters}")]
+        [Display(Name = "Awesomeness Number", Description = "{year (4 digits)}BA-{3 utility digits}{2 English characters}")]
         [RegularExpression(@"^[0-9]{4}BA-[0-9]{3}[a-zA-Z]{2}$", ErrorMessage = "Awesomeness Number format is: {{year (4 digits)}}BA-{{3 utility digits}}{{2 English characters}}")]
         public string AwesomenessNumber { get; set; }
 

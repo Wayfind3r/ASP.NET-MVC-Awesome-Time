@@ -8,10 +8,10 @@ namespace Awesome_Time.Interfaces
 {
     public interface IAccountService
     {
-        UpdateAccountResult UpdateAccount(UpdateAccountViewModel model);
+        UpdateAccountServiceResult UpdateAccount(UpdateAccountViewModel model);
 
         AccountTableViewModel GetAccounts(string email, int page, int pageSize);
-
+        UpdateAccountViewModel GetAccountViewModel(string accountId);
         bool TryRegisterAccount(ApplicationUser user, string plainPassword);
     }
 }

@@ -2,6 +2,7 @@
     font-family: 'Open Sans', sans-serif;
     padding-top: 50px;
     padding-bottom: 20px;
+    background-color: #f1f1f1;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -17,13 +18,37 @@
     white-space: normal;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+.margin-top-5{
+    margin-top: 5px;
 }
 
+/* NAVBAR */
+.navbar {
+    //Increase font-size
+    $navBarFontSize: 16px;
+    font-size: $navBarFontSize;
+    font-weight: bold;
+
+    &.navbar-inverse {
+        background-color: #2f4f15;
+        /* DROPDOWNS */
+        .dropdown {
+            .dropdown-menu {
+                font-size: $navBarFontSize;
+                border-radius: 0px;
+            }
+
+            &:hover {
+                //Make dropdowns open on hover
+                .dropdown-menu {
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+/* PLACEHOLDERS */
 //Create placeholder mixin
 @mixin placeholder($color, $size:"") {
   &::-webkit-input-placeholder {
@@ -54,8 +79,14 @@ textarea {
 
 //Use placeholder mixin (size param is optional)
 [placeholder] {
-  @include placeholder(gray, "");
+  @include placeholder(gray);
 }
+
+
+/*.dropdown:hover .dropdown-menu {
+    display: block;
+}*/
+
 
 //Class added by MVC to wrong inputs
 .input-validation-error {
@@ -93,7 +124,7 @@ textarea {
     box-shadow: 1px 1px 3px #888888;
 }
 
-//Form classes
+/*FORMS*/
 .form-horizontal.minimalistic-form {
     @extend .grayshadow-heavy;
     padding: 10px;
@@ -154,8 +185,9 @@ textarea {
     }
 
     input, select, textarea {
-        max-width:90%;
-        &[type="checkbox"]{
+        max-width: 90%;
+
+        &[type="checkbox"] {
             margin-left: auto;
         }
 
@@ -168,10 +200,22 @@ textarea {
 
         &:active,
         &:focus {
-            border-color:rgb(130, 170, 54);
+            border-color: rgb(130, 170, 54);
             border-top: 3px solid rgb(130, 170, 54);
             -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(130, 170, 54, 0.6);
             box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(130, 170, 54, 0.6);
+        }
+
+        &.input-validation-error {
+                &:focus,
+                &:active,
+                &:hover{
+                    border-color: rgb(130, 30, 54);
+                    border-top: 3px solid rgb(130, 30, 54);
+                    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(130, 30, 54, 0.6);
+                    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(130, 30, 54, 0.6);
+            }
+            
         }
     }
     /* Custom, iPhone Retina */
@@ -194,4 +238,54 @@ textarea {
     @media only screen and (min-width : 1200px) {
         margin: 8% 25%;
     }
+
+    &.margin-low {
+        /* Custom, iPhone Retina */
+        @media only screen and (min-width : 320px) {
+            margin-top: 40px;
+        }
+        /* Extra Small Devices, Phones */
+        @media only screen and (min-width : 480px) {
+            margin: 40px 7% 0 7%;
+        }
+        /* Small Devices, Tablets */
+        @media only screen and (min-width : 768px) {
+            margin: 5% 10% 0 10%;
+        }
+        /* Medium Devices, Desktops */
+        @media only screen and (min-width : 992px) {
+            margin: 5% 15% 0 15%;
+        }
+        /* Large Devices, Wide Screens */
+        @media only screen and (min-width : 1200px) {
+            margin: 5% 20% 0 20%;
+        }
+    }
 }
+
+//For single row form-groups
+.form-margin-for-form-groups{
+
+    /* Custom, iPhone Retina */
+    @media only screen and (min-width : 320px) {
+        margin-top: 40px;
+    }
+    /* Extra Small Devices, Phones */
+    @media only screen and (min-width : 480px) {
+        margin: 0 16%;
+    }
+    /* Small Devices, Tablets */
+    @media only screen and (min-width : 768px) {
+        margin: 0 22%;
+    }
+    /* Medium Devices, Desktops */
+    @media only screen and (min-width : 992px) {
+        margin: 0 27%;
+    }
+    /* Large Devices, Wide Screens */
+    @media only screen and (min-width : 1200px) {
+        margin: 0 33%;
+    }
+}
+
+

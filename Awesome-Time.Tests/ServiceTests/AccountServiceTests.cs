@@ -11,6 +11,8 @@ using Awesome_Time.Entities;
 using System.Data.Entity;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using Awesome_Time.ViewModels;
+using Awesome_Time.Enumerations;
 
 namespace Awesome_Time.Tests.ServiceTests
 {
@@ -46,5 +48,6 @@ namespace Awesome_Time.Tests.ServiceTests
             // Assert
             Assert.AreEqual(result.Pager.TotalItems, 2);
         }
+        
     }
 }

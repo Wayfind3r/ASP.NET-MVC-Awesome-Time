@@ -1,7 +1,8 @@
 ﻿body {
   font-family: 'Open Sans', sans-serif;
   padding-top: 50px;
-  padding-bottom: 20px; }
+  padding-bottom: 20px;
+  background-color: #f1f1f1; }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
@@ -14,12 +15,23 @@
 .dl-horizontal dt {
   white-space: normal; }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-  max-width: 280px; }
+.margin-top-5 {
+  margin-top: 5px; }
 
+/* NAVBAR */
+.navbar {
+  font-size: 16px;
+  font-weight: bold; }
+  .navbar.navbar-inverse {
+    background-color: #2f4f15;
+    /* DROPDOWNS */ }
+    .navbar.navbar-inverse .dropdown .dropdown-menu {
+      font-size: 16px;
+      border-radius: 0px; }
+    .navbar.navbar-inverse .dropdown:hover .dropdown-menu {
+      display: block; }
+
+/* PLACEHOLDERS */
 [placeholder]::-webkit-input-placeholder {
   color: gray; }
 
@@ -32,6 +44,9 @@ textarea {
 [placeholder]:-ms-input-placeholder {
   color: gray; }
 
+/*.dropdown:hover .dropdown-menu {
+    display: block;
+}*/
 .input-validation-error {
   background-color: #fff1f1;
   border-color: #fc3d3d;
@@ -57,6 +72,7 @@ textarea {
 .grayshadow-light {
   box-shadow: 1px 1px 3px #888888; }
 
+/*FORMS*/
 .form-horizontal.minimalistic-form {
   padding: 10px;
   text-align: center;
@@ -118,6 +134,11 @@ textarea {
       border-top: 3px solid #82aa36;
       -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(130, 170, 54, 0.6);
       box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(130, 170, 54, 0.6); }
+    .form-middle-sm input.input-validation-error:focus, .form-middle-sm input.input-validation-error:active, .form-middle-sm input.input-validation-error:hover, .form-middle-sm select.input-validation-error:focus, .form-middle-sm select.input-validation-error:active, .form-middle-sm select.input-validation-error:hover, .form-middle-sm textarea.input-validation-error:focus, .form-middle-sm textarea.input-validation-error:active, .form-middle-sm textarea.input-validation-error:hover {
+      border-color: #821e36;
+      border-top: 3px solid #821e36;
+      -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(130, 30, 54, 0.6);
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(130, 30, 54, 0.6); }
   @media only screen and (min-width: 320px) {
     .form-middle-sm {
       margin-top: 40px; } }
@@ -133,4 +154,47 @@ textarea {
   @media only screen and (min-width: 1200px) {
     .form-middle-sm {
       margin: 8% 25%; } }
+  .form-middle-sm.margin-low {
+    /* Custom, iPhone Retina */
+    /* Extra Small Devices, Phones */
+    /* Small Devices, Tablets */
+    /* Medium Devices, Desktops */
+    /* Large Devices, Wide Screens */ }
+    @media only screen and (min-width: 320px) {
+      .form-middle-sm.margin-low {
+        margin-top: 40px; } }
+    @media only screen and (min-width: 480px) {
+      .form-middle-sm.margin-low {
+        margin: 40px 7% 0 7%; } }
+    @media only screen and (min-width: 768px) {
+      .form-middle-sm.margin-low {
+        margin: 5% 10% 0 10%; } }
+    @media only screen and (min-width: 992px) {
+      .form-middle-sm.margin-low {
+        margin: 5% 15% 0 15%; } }
+    @media only screen and (min-width: 1200px) {
+      .form-middle-sm.margin-low {
+        margin: 5% 20% 0 20%; } }
+
+.form-margin-for-form-groups {
+  /* Custom, iPhone Retina */
+  /* Extra Small Devices, Phones */
+  /* Small Devices, Tablets */
+  /* Medium Devices, Desktops */
+  /* Large Devices, Wide Screens */ }
+  @media only screen and (min-width: 320px) {
+    .form-margin-for-form-groups {
+      margin-top: 40px; } }
+  @media only screen and (min-width: 480px) {
+    .form-margin-for-form-groups {
+      margin: 0 16%; } }
+  @media only screen and (min-width: 768px) {
+    .form-margin-for-form-groups {
+      margin: 0 22%; } }
+  @media only screen and (min-width: 992px) {
+    .form-margin-for-form-groups {
+      margin: 0 27%; } }
+  @media only screen and (min-width: 1200px) {
+    .form-margin-for-form-groups {
+      margin: 0 33%; } }
 

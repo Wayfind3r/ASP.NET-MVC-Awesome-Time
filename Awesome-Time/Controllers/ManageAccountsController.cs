@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 using Awesome_Time.Interfaces;
-using Awesome_Time.ViewModels;
+using Awesome_Time.ServiceClasses.AccountServiceClasses;
 using System.Linq;
 
 namespace Awesome_Time.Controllers
@@ -34,7 +34,7 @@ namespace Awesome_Time.Controllers
 
         [ValidateAntiForgeryToken]
         [HttpPost]
-        public ActionResult Edit(UpdateAccountViewModel model)
+        public ActionResult Edit(UpdateAccountServiceModel model)
         {
             if(!ModelState.IsValid)
             {
@@ -54,7 +54,7 @@ namespace Awesome_Time.Controllers
                 model.Errors = result.Errors.ToList();
                 return View(model);
             }
-
+            
             return RedirectToAction("List", new { email = model.Email });
         }
     }

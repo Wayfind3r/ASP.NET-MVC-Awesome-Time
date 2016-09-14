@@ -1,7 +1,7 @@
 ﻿@using System.Runtime;
 @using System.Collections;
 @using System.Collections.Generic;
-@model Awesome_Time.ViewModels.AccountTableViewModel
+@model Awesome_Time.ServiceClasses.AccountServiceClasses.AccountTableServiceModel
 
 @{
     ViewBag.Title = "List";
@@ -21,7 +21,7 @@
     }
 </div>
     <p class="text-center margin-top-5">
-        @Html.ActionLink("Register", "Register", "Account", new { @class = "btn btn-default" })
+        @Html.ActionLink("Register", "Register", "Account", null, new { @class = "btn btn-default" })
     </p>
 <table class="table">
     <tr>

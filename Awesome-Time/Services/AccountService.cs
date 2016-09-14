@@ -21,7 +21,7 @@ namespace Awesome_Time.Services
             db = context;
         }
 
-        public AccountTableViewModel GetAccounts(string email, int page, int pageSize)
+        public AccountTableServiceModel GetAccounts(string email, int page, int pageSize)
         {
             var query = db.Users.AsQueryable();
 
@@ -31,7 +31,7 @@ namespace Awesome_Time.Services
             }
 
             var tableContent = query
-                .Select(u => new AccountTableRowViewModel
+                .Select(u => new AccountTableRowServiceModel
             {
                 AwesomenessNumber = u.AwesomenessNumber,
                 TwitterAccount = u.TwitterAccount,
@@ -49,18 +49,18 @@ namespace Awesome_Time.Services
 
             var totalResults = query.Count();
 
-            var result = new AccountTableViewModel(tableContent, totalResults, page, pageSize, email);
+            var result = new AccountTableServiceModel(tableContent, totalResults, page, pageSize, email);
 
             return result;
         }
 
-        public UpdateAccountViewModel GetAccountViewModel(string accountId)
+        public UpdateAccountServiceModel GetAccountViewModel(string accountId)
         {
             var applicationUserManager = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>();
 
             var user = applicationUserManager.FindById(accountId);
 
-            var result = new UpdateAccountViewModel
+            var result = new UpdateAccountServiceModel
             {
                 AwesomenessNumber = user.AwesomenessNumber,
                 TwitterAccount = user.TwitterAccount,
@@ -78,7 +78,7 @@ namespace Awesome_Time.Services
             return result;
         }
 
-        public UpdateAccountServiceResult UpdateAccount(UpdateAccountViewModel model)
+        public UpdateAccountServiceResult UpdateAccount(UpdateAccountServiceModel model)
         {
             var applicationUserManager = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>();
 

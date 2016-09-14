@@ -1,11 +1,11 @@
-﻿@model Awesome_Time.ViewModels.UpdateAccountViewModel
+﻿@model Awesome_Time.ServiceClasses.AccountServiceClasses.UpdateAccountServiceModel
 
 @{
     ViewBag.Title = "Edit";
 }
 
 
-@using (Html.BeginForm("Edit", "ManageAccounts", FormMethod.Post, new { @class = "form-horizontal form-middle-sm margin-low", role = "form" }))
+@using (Html.BeginForm("Edit", "ManageAccounts", FormMethod.Post, new { @class = "form-horizontal form-middle-sm margin-low", role = "form", id="validate" }))
 {
     @Html.AntiForgeryToken()
     <div class="text-center">
@@ -104,4 +104,8 @@
             </div>
         </div>
     </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
 }

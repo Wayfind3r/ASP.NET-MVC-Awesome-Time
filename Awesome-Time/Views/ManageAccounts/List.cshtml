@@ -82,35 +82,5 @@
 </table>
 
 <div class="text-center">
-    <!-- pager -->
-    @if (Model.Pager.EndPage > 0)
-    {
-        <ul class="pagination">
-            @if (Model.Pager.CurrentPage > 1)
-            {
-                <li>
-                    <a href="~/ManageAccounts/List?email=@Model.EmailFilter">First</a>
-                </li>
-                <li>
-                    <a href="~/ManageAccounts/List?page=@(Model.Pager.CurrentPage - 1)&pageSize=@Model.Pager.PageSize&email=@Model.EmailFilter">Previous</a>
-                </li>
-            }
-
-            @for (var page = Model.Pager.StartPage; page <= Model.Pager.EndPage; page++)
-            {
-                <li class="@(page == Model.Pager.CurrentPage ? "active" : "")">
-                    <a href="~/ManageAccounts/List?page=@page&pageSize=@Model.Pager.PageSize&email=@Model.EmailFilter">@page</a>
-                </li>}
-
-            @if (Model.Pager.CurrentPage < Model.Pager.TotalPages)
-            {
-                <li>
-                    <a href="~/ManageAccounts/List?page=@(Model.Pager.CurrentPage + 1)&pageSize=@Model.Pager.PageSize&email=@Model.EmailFilter">Next</a>
-                </li>
-                <li>
-                    <a href="~/ManageAccounts/List?page=@(Model.Pager.TotalPages)&pageSize=@Model.Pager.PageSize&email=@Model.EmailFilter">Last</a>
-                </li>
-            }
-        </ul>
-    }
+    @Html.Pager("List", "ManageAccounts", Model.Pager, new { email = Model.EmailFilter })
 </div>

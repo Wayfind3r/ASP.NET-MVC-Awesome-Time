@@ -49,5 +49,7 @@ namespace Awesome_Time.Entities
         {
             return new ApplicationDbContext();
         }
+
+        public virtual DbSet<Article> Articles { get; set; }
     }
 }

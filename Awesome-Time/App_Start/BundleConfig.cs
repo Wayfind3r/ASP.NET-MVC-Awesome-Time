@@ -28,6 +28,10 @@ namespace Awesome_Time
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/main-style.min.css"));
+
+            bundles.Add(new StyleBundle("~/bundles/tinymce").Include(
+                        "~/Scripts/tinymce.min.js",
+                        "~/Scripts/jquery.tinymce.min.js"));
         }
     }
 }

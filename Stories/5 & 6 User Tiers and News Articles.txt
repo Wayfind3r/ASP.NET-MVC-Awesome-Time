@@ -1,0 +1,10 @@
+User Tiers:
+Each user should have a User Tier.
+These tiers will be used to grant access to different features part of the website.
+User Tiers are: 
+Noob, Basic, Alright, Awesome
+Users are registered as Noobs
+
+News Articles:
+Administrators should be able to write News Articles
+Latest Articles should be displayed in a carousel on the homepage

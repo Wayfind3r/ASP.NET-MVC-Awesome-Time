@@ -126,14 +126,5 @@ namespace Awesome_Time.Services
 
             return result;
         }
-
-        public bool TryRegisterAccount(ApplicationUser user, string plainPassword)
-        {
-            var applicationUserManager = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>();
-
-            var result = applicationUserManager.CreateAsync(user, plainPassword).Result.Succeeded;
-
-            return result;
-        }
     }
 }

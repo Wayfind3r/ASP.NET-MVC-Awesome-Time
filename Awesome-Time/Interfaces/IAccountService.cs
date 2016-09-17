@@ -11,6 +11,5 @@ namespace Awesome_Time.Interfaces
 
         AccountTableServiceModel GetAccounts(string email, int page, int pageSize);
         UpdateAccountServiceModel GetAccountViewModel(string accountId);
-        bool TryRegisterAccount(ApplicationUser user, string plainPassword);
     }
 }

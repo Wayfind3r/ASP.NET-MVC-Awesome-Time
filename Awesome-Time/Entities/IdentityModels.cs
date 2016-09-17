@@ -5,6 +5,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.ComponentModel.DataAnnotations;
 using System;
+using System.Collections.Generic;
+using Awesome_Time.Enumerations;
 
 namespace Awesome_Time.Entities
 {
@@ -28,7 +30,11 @@ namespace Awesome_Time.Entities
         [MaxLength(12)]
         public string AwesomenessNumber { get; set; }
 
+        public UserTier UserTier { get; set; }
+
         public DateTime RegistrationDate { get; set; }
+
+        public virtual ICollection<Article> Articles { get; set; }
         
     }
 

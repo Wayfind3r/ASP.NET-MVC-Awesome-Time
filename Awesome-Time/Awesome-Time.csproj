@@ -233,7 +233,9 @@
     <Compile Include="DependencyResolution\IoC.cs" />
     <Compile Include="DependencyResolution\StructureMapDependencyResolver.cs" />
     <Compile Include="DependencyResolution\StructureMapDependencyScope.cs" />
+    <Compile Include="Entities\Article.cs" />
     <Compile Include="Enumerations\AccountUpdateResult.cs" />
+    <Compile Include="Enumerations\UserTier.cs" />
     <Compile Include="Extensions\HtmlHelperExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -254,6 +256,10 @@
     <Compile Include="Migrations\201609091029499_Added-Configuration-Seed.cs" />
     <Compile Include="Migrations\201609091029499_Added-Configuration-Seed.Designer.cs">
       <DependentUpon>201609091029499_Added-Configuration-Seed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609170849451_User-Tiers-And-Articles.cs" />
+    <Compile Include="Migrations\201609170849451_User-Tiers-And-Articles.Designer.cs">
+      <DependentUpon>201609170849451_User-Tiers-And-Articles.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ServiceClasses\AccountServiceClasses.cs" />
@@ -376,6 +382,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201609091029499_Added-Configuration-Seed.resx">
       <DependentUpon>201609091029499_Added-Configuration-Seed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609170849451_User-Tiers-And-Articles.resx">
+      <DependentUpon>201609170849451_User-Tiers-And-Articles.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

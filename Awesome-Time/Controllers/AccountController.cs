@@ -161,7 +161,8 @@ namespace Awesome_Time.Controllers
                     TwitterAccount = model.TwitterAccount,
                     GivenName = model.GivenName,
                     FamilyName = model.FamilyName,
-                    RegistrationDate = DateTime.Now
+                    RegistrationDate = DateTime.Now,
+                    UserTier = Enumerations.UserTier.Noob
                 };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)

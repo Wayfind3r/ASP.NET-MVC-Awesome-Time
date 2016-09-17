@@ -7,8 +7,7 @@ namespace Awesome_Time.Migrations
     using Microsoft.AspNet.Identity.EntityFramework;
     using Entities;
     using Microsoft.AspNet.Identity;
-    using Awesome_Time.Services;
-    using Awesome_Time.Interfaces;
+    using Awesome_Time.Enumerations;
 
     internal sealed class Configuration : DbMigrationsConfiguration<Awesome_Time.Entities.ApplicationDbContext>
     {
@@ -48,7 +47,8 @@ namespace Awesome_Time.Migrations
                 TwitterAccount = "nottwitter",
                 GivenName = "Gandalf",
                 FamilyName = "The Administrator",
-                RegistrationDate = DateTime.Now
+                RegistrationDate = DateTime.Now,
+                UserTier = UserTier.Noob
             };
 
             userManager.Create(administratorAccount, "Administrator55");

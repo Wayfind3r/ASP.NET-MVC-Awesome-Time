@@ -6,49 +6,52 @@ using System.Web.Mvc;
 using Awesome_Time;
 using Awesome_Time.Controllers;
 using NUnit.Framework;
+using Awesome_Time.Interfaces;
 
 namespace Awesome_Time.Tests.Controllers
 {
     [TestFixture]
     public class HomeControllerTest
     {
-        [Test]
-        public void Index()
-        {
-            // Arrange
-            HomeController controller = new HomeController();
+        //[Test]
+        //public void Index()
+        //{
+        //    var articleService = new IArticleService()
 
-            // Act
-            ViewResult result = controller.Index() as ViewResult;
+        //    // Arrange
+        //    HomeController controller = new HomeController(IArticleService service);
 
-            // Assert
-            Assert.IsNotNull(result);
-        }
+        //    // Act
+        //    ViewResult result = controller.Index() as ViewResult;
 
-        [Test]
-        public void About()
-        {
-            // Arrange
-            HomeController controller = new HomeController();
+        //    // Assert
+        //    Assert.IsNotNull(result);
+        //}
 
-            // Act
-            ViewResult result = controller.About() as ViewResult;
+        //[Test]
+        //public void About()
+        //{
+        //    // Arrange
+        //    HomeController controller = new HomeController();
 
-            // Assert
-            Assert.AreEqual("Your application description page.", result.ViewBag.Message);
-        }
+        //    // Act
+        //    ViewResult result = controller.About() as ViewResult;
 
-        [Test]
-        public void Contact()
-        {
-            // Arrange
-            HomeController controller = new HomeController();
+        //    // Assert
+        //    Assert.AreEqual("Your application description page.", result.ViewBag.Message);
+        //}
 
-            // Act
-            ViewResult result = controller.Contact() as ViewResult;
+        //[Test]
+        //public void Contact()
+        //{
+        //    // Arrange
+        //    HomeController controller = new HomeController();
 
-            // Assert
-            Assert.IsNotNull(result);
-        }
+        //    // Act
+        //    ViewResult result = controller.Contact() as ViewResult;
+
+        //    // Assert
+        //    Assert.IsNotNull(result);
+        //}
     }
 }

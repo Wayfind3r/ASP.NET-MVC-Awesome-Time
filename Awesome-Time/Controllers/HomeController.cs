@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Awesome_Time.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,9 +9,18 @@ namespace Awesome_Time.Controllers
 {
     public class HomeController : Controller
     {
+        IArticleService articleService;
+
+        public HomeController(IArticleService service)
+        {
+            articleService = service;
+        }
+
         public ActionResult Index()
         {
-            return View();
+            var model = articleService.GetLatestArticlePreviews();
+
+            return View(model);
         }
 
         public ActionResult About()

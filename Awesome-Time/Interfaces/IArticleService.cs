@@ -7,6 +7,8 @@ namespace Awesome_Time.Interfaces
     {
         int Create(ArticleServiceModel model);
 
-        List<ArticleServiceModel> GetLatestArticles(int count);
+        List<ArticleServiceModel> GetLatestArticles(int count = 4);
+
+        List<ArticleServiceModel> GetLatestArticlePreviews(int count = 4);
     }
 }

@@ -34,6 +34,7 @@ namespace Awesome_Time.DependencyResolution {
                                     });
                             //                x.For<IExample>().Use<Example>();
                             x.For<IAccountService>().Use<AccountService>();
+                            x.For<IArticleService>().Use<ArticleService>();
                         });
             return ObjectFactory.Container;
         }

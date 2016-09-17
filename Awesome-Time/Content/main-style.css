@@ -175,6 +175,31 @@
     @media only screen and (min-width: 1200px) {
       .form-middle-sm.margin-low {
         margin: 5% 20% 0 20%; } }
+  .form-middle-sm.margin-lowest {
+    /* Custom, iPhone Retina */
+    /* Extra Small Devices, Phones */
+    /* Small Devices, Tablets */
+    /* Medium Devices, Desktops */
+    /* Large Devices, Wide Screens */ }
+    @media only screen and (min-width: 320px) {
+      .form-middle-sm.margin-lowest {
+        margin-top: 40px; } }
+    @media only screen and (min-width: 480px) {
+      .form-middle-sm.margin-lowest {
+        margin: 40px 2% 0 2%; } }
+    @media only screen and (min-width: 768px) {
+      .form-middle-sm.margin-lowest {
+        margin: 5% 3% 0 3%; } }
+    @media only screen and (min-width: 992px) {
+      .form-middle-sm.margin-lowest {
+        margin: 5% 5% 0 5%; } }
+    @media only screen and (min-width: 1200px) {
+      .form-middle-sm.margin-lowest {
+        margin: 5% 6% 0 6%; } }
+    .form-middle-sm.margin-lowest input,
+    .form-middle-sm.margin-lowest select,
+    .form-middle-sm.margin-lowest textarea {
+      max-width: 100%; }
 
 .form-margin-for-form-groups {
   /* Custom, iPhone Retina */
@@ -197,4 +222,22 @@
   @media only screen and (min-width: 1200px) {
     .form-margin-for-form-groups {
       margin: 0 33%; } }
+
+.carousel .carousel-control.left, .carousel .carousel-control.right {
+  color: black;
+  background-image: none;
+  background-image: none;
+  background-image: none;
+  background-image: none;
+  filter: progid:DXImageTransform.Microsoft.gradient none; }
+
+.carousel .carousel-indicators {
+  color: black; }
+  .carousel .carousel-indicators.bottom {
+    position: relative !important;
+    margin-top: 30px; }
+  .carousel .carousel-indicators .active {
+    background-color: black; }
+  .carousel .carousel-indicators li {
+    border-color: black; }
 

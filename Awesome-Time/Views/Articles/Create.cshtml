@@ -1,0 +1,52 @@
+﻿@model Awesome_Time.ServiceClasses.ArticleServiceClasses.ArticleServiceModel
+
+@{
+    ViewBag.Title = "Create";
+}
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}
+<script src="~/Scripts/tinymce/tinymce.min.js"></script>
+<script>
+    tinymce.init({
+        elements: "Body",
+        mode: "exact",
+        menubar: 'edit view format insert',
+        plugins: 'advlist autolink link image lists charmap print preview paste',
+        paste_auto_cleanup_on_paste: true,
+        paste_remove_styles: true,
+        paste_remove_styles_if_webkit: true,
+        paste_strip_class_attributes: "all",
+        toolbar: [
+    'undo redo | styleselect | bold italic | link image | alignleft aligncenter alignright'
+        ]
+    });
+</script>
+
+@using (Html.BeginForm("Create", "Articles", FormMethod.Post, new { @class = "form-horizontal form-middle-sm margin-lowest", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h2>Write a new Article</h2>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group text-center">
+            @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group text-center">
+            @Html.LabelFor(model => model.Body, htmlAttributes: new { @class = "control-label" })
+                @Html.TextAreaFor(model => model.Body, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Body, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <div class="text-center">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}

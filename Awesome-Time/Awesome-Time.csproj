@@ -227,6 +227,7 @@
     <Compile Include="App_Start\StructuremapMvc.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdministratorController.cs" />
+    <Compile Include="Controllers\ArticlesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageAccountsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -261,6 +262,10 @@
     <Compile Include="Migrations\201609170849451_User-Tiers-And-Articles.cs" />
     <Compile Include="Migrations\201609170849451_User-Tiers-And-Articles.Designer.cs">
       <DependentUpon>201609170849451_User-Tiers-And-Articles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609171233531_Added-DBSet-Articles.cs" />
+    <Compile Include="Migrations\201609171233531_Added-DBSet-Articles.Designer.cs">
+      <DependentUpon>201609171233531_Added-DBSet-Articles.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ServiceClasses\AccountServiceClasses.cs" />
@@ -448,6 +453,7 @@
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.eot" />
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.ttf" />
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.woff" />
+    <Content Include="Views\Articles\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -474,6 +480,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201609170849451_User-Tiers-And-Articles.resx">
       <DependentUpon>201609170849451_User-Tiers-And-Articles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609171233531_Added-DBSet-Articles.resx">
+      <DependentUpon>201609171233531_Added-DBSet-Articles.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

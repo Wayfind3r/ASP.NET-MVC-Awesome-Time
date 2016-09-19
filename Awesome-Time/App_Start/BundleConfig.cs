@@ -26,12 +26,21 @@ namespace Awesome_Time
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                      "~/Content/bootstrap.min.css",
                       "~/Content/main-style.min.css"));
 
-            bundles.Add(new StyleBundle("~/bundles/tinymce").Include(
+            bundles.Add(new StyleBundle("~/Content/datepickercss").Include(
+                      "~/Content/bootstrap-datepicker.css"));//Use only in stock boostrap forms
+
+            bundles.Add(new ScriptBundle("~/bundles/tinymce").Include(
                         "~/Scripts/tinymce.min.js",
                         "~/Scripts/jquery.tinymce.min.js"));
+
+            bundles.Add(new StyleBundle("~/Content/datepickercss").Include(
+                      "~/Content/bootstrap-datepicker.min.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/datepicker").Include(
+                "~/Scripts/bootstrap-datepicker.min.js"));
         }
     }
 }

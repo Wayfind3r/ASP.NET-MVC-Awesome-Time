@@ -1,0 +1,12 @@
+As an Admin, I want to download a user report as an Excel file.
+
+The user report should include the following columns:
+- UserId,
+- Email
+- Full Name
+- User Tier (Noob, Awesome etc...)
+- Total login count
+- Date Registered
+- Last Login Date
+
+Login statistics should be implemented using the Event Sourcing Pattern

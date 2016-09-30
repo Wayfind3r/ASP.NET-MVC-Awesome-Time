@@ -235,7 +235,9 @@
     <Compile Include="DependencyResolution\StructureMapDependencyResolver.cs" />
     <Compile Include="DependencyResolution\StructureMapDependencyScope.cs" />
     <Compile Include="Entities\Article.cs" />
+    <Compile Include="Entities\UserAction.cs" />
     <Compile Include="Enumerations\AccountUpdateResult.cs" />
+    <Compile Include="Enumerations\UserActionType.cs" />
     <Compile Include="Enumerations\UserTier.cs" />
     <Compile Include="Extensions\HtmlHelperExtensions.cs" />
     <Compile Include="Global.asax.cs">
@@ -243,6 +245,7 @@
     </Compile>
     <Compile Include="Interfaces\IAccountService.cs" />
     <Compile Include="Interfaces\IArticleService.cs" />
+    <Compile Include="Interfaces\IUserActionService.cs" />
     <Compile Include="Migrations\201609011400533_InitialCreate.cs" />
     <Compile Include="Migrations\201609011400533_InitialCreate.Designer.cs">
       <DependentUpon>201609011400533_InitialCreate.cs</DependentUpon>
@@ -266,6 +269,10 @@
     <Compile Include="Migrations\201609171233531_Added-DBSet-Articles.cs" />
     <Compile Include="Migrations\201609171233531_Added-DBSet-Articles.Designer.cs">
       <DependentUpon>201609171233531_Added-DBSet-Articles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609300914466_Added-UserActions.cs" />
+    <Compile Include="Migrations\201609300914466_Added-UserActions.Designer.cs">
+      <DependentUpon>201609300914466_Added-UserActions.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ServiceClasses\AccountServiceClasses.cs" />
@@ -487,6 +494,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201609171233531_Added-DBSet-Articles.resx">
       <DependentUpon>201609171233531_Added-DBSet-Articles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609300914466_Added-UserActions.resx">
+      <DependentUpon>201609300914466_Added-UserActions.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

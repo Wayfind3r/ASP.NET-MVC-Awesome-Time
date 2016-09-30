@@ -36,6 +36,7 @@ namespace Awesome_Time.Entities
 
         public virtual ICollection<Article> Articles { get; set; }
         
+        public virtual ICollection<UserAction> UserActions { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
@@ -51,5 +52,7 @@ namespace Awesome_Time.Entities
         }
 
         public virtual DbSet<Article> Articles { get; set; }
+
+        public virtual DbSet<UserAction> UserActions { get; set; }
     }
 }

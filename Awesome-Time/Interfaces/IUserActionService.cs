@@ -5,6 +5,6 @@ namespace Awesome_Time.Interfaces
 {
     public interface IUserActionService
     {
-        int RecordAction(string UserId, UserActionType type);
+        int RecordAction(UserActionType type);
     }
 }

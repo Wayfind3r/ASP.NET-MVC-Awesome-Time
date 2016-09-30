@@ -10,6 +10,8 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Awesome_Time.Entities;
 using Awesome_Time.ViewModels;
+using Awesome_Time.Interfaces;
+using Awesome_Time.Enumerations;
 
 namespace Awesome_Time.Controllers
 {
@@ -18,15 +20,17 @@ namespace Awesome_Time.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private IUserActionService _actionService;
 
         public AccountController()
         {
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager, IUserActionService actionService)
         {
             UserManager = userManager;
             SignInManager = signInManager;
+            _actionService = actionService;
         }
 
         public ApplicationSignInManager SignInManager
@@ -77,9 +81,21 @@ namespace Awesome_Time.Controllers
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
             var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+
+            //Record Login
+            if(result == SignInStatus.Success)
+            {
+                _actionService.RecordAction(UserActionType.Login);
+            }
+            else
+            {
+                _actionService.RecordAction(UserActionType.FailedLogin);
+            }
+
             switch (result)
             {
                 case SignInStatus.Success:
+                    
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");

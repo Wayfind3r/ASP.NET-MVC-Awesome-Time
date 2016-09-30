@@ -280,6 +280,7 @@
     <Compile Include="ServiceClasses\Pager.cs" />
     <Compile Include="Services\AccountService.cs" />
     <Compile Include="Services\ArticleService.cs" />
+    <Compile Include="Services\UserActionService.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
     <Compile Include="Entities\IdentityModels.cs" />
     <Compile Include="ViewModels\ManageViewModels.cs" />

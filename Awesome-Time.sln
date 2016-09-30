@@ -7,6 +7,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Awesome-Time", "Awesome-Tim
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Awesome-Time.Tests", "Awesome-Time.Tests\Awesome-Time.Tests.csproj", "{7FDA6A36-B75C-41C1-845B-1AE78DD2D027}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Stories", "Stories", "{104195AF-F58F-4035-AAAA-3F3E28F2AB0C}"
+	ProjectSection(SolutionItems) = preProject
+		Stories\1 & 2 Registration.docx = Stories\1 & 2 Registration.docx
+		Stories\3 & 4 Admin Area and Account Management.txt = Stories\3 & 4 Admin Area and Account Management.txt
+		Stories\5 & 6 User Tiers and News Articles.txt = Stories\5 & 6 User Tiers and News Articles.txt
+		Stories\7 User Report and Login Data.txt = Stories\7 User Report and Login Data.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

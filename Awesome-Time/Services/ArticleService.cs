@@ -68,8 +68,6 @@ namespace Awesome_Time.Services
         {
             //Remove Html
             var result = Regex.Replace(htmlString, @"<[^>]*>", String.Empty);
-            //result = Regex.Replace(htmlString, @"&nbsp;", " ");
-            //result = Regex.Replace(htmlString, @"&ldquo;|&rdquo;", "\"");
 
             //Get preview length
             var length = result.Length < _previewLength ? result.Length : _previewLength;

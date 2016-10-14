@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Awesome_Time.ServiceClasses;
+using Awesome_Time.ServiceClasses.AccountServiceClasses;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Awesome_Time.ViewModels
@@ -137,5 +139,19 @@ namespace Awesome_Time.ViewModels
         public string Email { get; set; }
     }
 
-   
+    public class AccountsLoginStatisticTableViewModel
+    {
+        private AccountsLoginStatisticTableViewModel() { }
+
+        public AccountsLoginStatisticTableViewModel(List<AccountLoginStatisticServiceModel> list, int totalItems, int page, int pageSize, string emailFilter)
+        {
+            Pager = new Pager(totalItems, page, pageSize);
+        }
+ 
+        public List<AccountTableRowServiceModel> Content { get; set; }
+
+        public Pager Pager { get; set; }
+
+        public string EmailFilter { get; set; }
+    }
 }

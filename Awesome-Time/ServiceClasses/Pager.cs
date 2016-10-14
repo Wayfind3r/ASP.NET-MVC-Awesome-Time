@@ -4,6 +4,8 @@ namespace Awesome_Time.ServiceClasses
 {
     public class Pager
     {
+        private Pager(){}
+
         public Pager(int totalItems, int page = 1, int pageSize = 10)
         {
             // calculate total, start and end pages

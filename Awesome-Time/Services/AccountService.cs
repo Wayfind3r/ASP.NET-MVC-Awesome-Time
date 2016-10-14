@@ -25,7 +25,7 @@ namespace Awesome_Time.Services
         {
             var query = db.Users.AsQueryable();
 
-            if (!String.IsNullOrEmpty(email))
+            if (!String.IsNullOrWhiteSpace(email))
             {
                 query = query.Where(x => x.Email.Contains(email));
             }
@@ -123,6 +123,103 @@ namespace Awesome_Time.Services
                 result.Succeeded = (AccountUpdateResult)Convert.ToInt32(updateResult.Succeeded);
                 result.Errors = updateResult.Errors;
             }
+
+            return result;
+        }
+
+        public int GetNumberOfAccounts(string email)
+        {
+            var result = 0;
+            if(String.IsNullOrWhiteSpace(email))
+            {
+                result = db.Users.Count();
+
+                return result;
+            }
+
+            var emailFilter = email.Trim();
+
+            result = db.Users
+                .Where(x => x.Email.Contains(emailFilter))
+                .Count();
+
+            return result;
+        }
+
+        public List<AccountLoginStatisticServiceModel> GetAccountsLoginStatistic(string email)
+        {
+            var result = new List<AccountLoginStatisticServiceModel>();
+
+            IQueryable<ApplicationUser> query;
+
+            if(!String.IsNullOrWhiteSpace(email))
+            {
+                var emailFilter = email.Trim();
+
+                query = db.Users.Where(x => x.Email.Contains(emailFilter));
+            }
+            else
+            {
+                query = db.Users.AsQueryable();
+            }
+
+            result = query.OrderByDescending(x => x.RegistrationDate)
+                    .Select(x => new AccountLoginStatisticServiceModel
+                    {
+                        Email = x.Email,
+                        FullName = x.GivenName + " " + x.FamilyName,
+                        LastLoginDate = x.UserActions.
+                            Where(action => action.Type == UserActionType.Login)
+                            .OrderByDescending(action => action.Date)
+                            .FirstOrDefault()
+                            .Date,
+                        RegistrationDate = x.RegistrationDate,
+                        TotalLogins = x.UserActions
+                            .Where(action => action.Type == UserActionType.Login)
+                            .Count(),
+                        UserId = x.Id,
+                        UserTier = x.UserTier.ToString()
+                    }).ToList();
+
+            return result;
+        }
+
+        public List<AccountLoginStatisticServiceModel> GetAccountsLoginStatistic(string email, int page, int pageSize)
+        {
+            var result = new List<AccountLoginStatisticServiceModel>();
+
+            IQueryable<ApplicationUser> query;
+
+            if (!String.IsNullOrWhiteSpace(email))
+            {
+                var emailFilter = email.Trim();
+
+                query = db.Users.Where(x => x.Email.Contains(emailFilter));
+            }
+            else
+            {
+                query = db.Users.AsQueryable();
+            }
+
+            result = query.OrderByDescending(x => x.RegistrationDate)
+                    .Skip((page-1)*pageSize)
+                    .Take(pageSize)
+                    .Select(x => new AccountLoginStatisticServiceModel
+                    {
+                        Email = x.Email,
+                        FullName = x.GivenName + " " + x.FamilyName,
+                        LastLoginDate = x.UserActions.
+                            Where(action => action.Type == UserActionType.Login)
+                            .OrderByDescending(action => action.Date)
+                            .FirstOrDefault()
+                            .Date,
+                        RegistrationDate = x.RegistrationDate,
+                        TotalLogins = x.UserActions
+                            .Where(action => action.Type == UserActionType.Login)
+                            .Count(),
+                        UserId = x.Id,
+                        UserTier = x.UserTier.ToString()
+                    }).ToList();
 
             return result;
         }

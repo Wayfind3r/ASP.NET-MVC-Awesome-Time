@@ -122,4 +122,24 @@ namespace Awesome_Time.ServiceClasses.AccountServiceClasses
         [Display(Name = "Registration Date")]
         public DateTime RegistrationDate { get; set; }
     }
+
+    public class AccountLoginStatisticServiceModel
+    {
+        [Display(Name = "User Id")]
+        public string UserId { get; set; }
+        [Display(Name = "Email")]
+        public string Email { get; set; }
+        [Display(Name = "Full Name")]
+        public string FullName { get; set; }
+        [Display(Name = "User Tier")]
+        public string UserTier { get; set; }
+        [Display(Name = "Total Logins")]
+        public int TotalLogins { get; set; }
+        [Display(Name = "Registration Date")]
+        public DateTime RegistrationDate { get; set; }
+        [Display(Name = "LastLogin Date")]
+        public DateTime LastLoginDate { get; set; }
+    }
+
+    
 }

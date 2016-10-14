@@ -10,6 +10,13 @@ namespace Awesome_Time.Interfaces
         UpdateAccountServiceResult UpdateAccount(UpdateAccountServiceModel model);
 
         AccountTableServiceModel GetAccounts(string email, int page, int pageSize);
+
         UpdateAccountServiceModel GetAccountViewModel(string accountId);
+
+        int GetNumberOfAccounts(string email);
+
+        List<AccountLoginStatisticServiceModel> GetAccountsLoginStatistic(string email, int page, int pageSize);
+
+        List<AccountLoginStatisticServiceModel> GetAccountsLoginStatistic(string email);
     }
 }

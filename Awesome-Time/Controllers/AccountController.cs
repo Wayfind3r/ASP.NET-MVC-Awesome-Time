@@ -12,24 +12,21 @@ using Awesome_Time.Entities;
 using Awesome_Time.ViewModels;
 using Awesome_Time.Interfaces;
 using Awesome_Time.Enumerations;
+using Microsoft.Owin;
 
 namespace Awesome_Time.Controllers
 {
     [Authorize]
     public class AccountController : Controller
     {
-        private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-        private IUserActionService _actionService;
+        private ApplicationSignInManager _signInManager;
+        private readonly IUserActionService _actionService;
 
-        public AccountController()
+        public AccountController(IOwinContext owinContext, IUserActionService actionService)
         {
-        }
-
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager, IUserActionService actionService)
-        {
-            UserManager = userManager;
-            SignInManager = signInManager;
+            _userManager = owinContext.GetUserManager<ApplicationUserManager>();
+            _signInManager = owinContext.Get<ApplicationSignInManager>();
             _actionService = actionService;
         }
 
@@ -37,11 +34,7 @@ namespace Awesome_Time.Controllers
         {
             get
             {
-                return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
-            }
-            private set
-            {
-                _signInManager = value;
+                return this._signInManager;
             }
         }
 
@@ -49,11 +42,7 @@ namespace Awesome_Time.Controllers
         {
             get
             {
-                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
-            }
-            private set
-            {
-                _userManager = value;
+                return this._userManager ?? this.HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
             }
         }
 

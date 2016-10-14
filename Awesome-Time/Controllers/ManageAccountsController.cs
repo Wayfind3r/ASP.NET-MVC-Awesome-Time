@@ -3,6 +3,7 @@ using System.Web.Mvc;
 using Awesome_Time.Interfaces;
 using Awesome_Time.ServiceClasses.AccountServiceClasses;
 using System.Linq;
+using Awesome_Time.ViewModels;
 
 namespace Awesome_Time.Controllers
 {
@@ -56,6 +57,17 @@ namespace Awesome_Time.Controllers
             }
             
             return RedirectToAction("List", new { email = model.Email });
+        }
+
+        public ActionResult LoginStatistic(int page = 1, int pageSize = 10, string email = "")
+        {
+            var total = accountService.GetNumberOfAccounts(email);
+
+            var list = accountService.GetAccountsLoginStatistic(email, page, pageSize);
+
+            var model = new AccountsLoginStatisticTableViewModel(list, total, page, pageSize, email);
+
+            return View(model);
         }
     }
 }

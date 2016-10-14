@@ -145,10 +145,12 @@ namespace Awesome_Time.ViewModels
 
         public AccountsLoginStatisticTableViewModel(List<AccountLoginStatisticServiceModel> list, int totalItems, int page, int pageSize, string emailFilter)
         {
+            Content = list;
             Pager = new Pager(totalItems, page, pageSize);
+            EmailFilter = emailFilter;
         }
  
-        public List<AccountTableRowServiceModel> Content { get; set; }
+        public List<AccountLoginStatisticServiceModel> Content { get; set; }
 
         public Pager Pager { get; set; }
 

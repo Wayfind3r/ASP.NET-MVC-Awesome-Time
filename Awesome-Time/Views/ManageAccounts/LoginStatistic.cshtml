@@ -1,0 +1,74 @@
+﻿@model Awesome_Time.ViewModels.AccountsLoginStatisticTableViewModel
+
+@{
+    ViewBag.Title = "Login Statistic";
+}
+
+<h2>Login Statistic</h2>
+
+<div>
+    @Html.BeginForm("LoginStatistic", "ManageAccounts", FormMethod.Get, new { @class = "form-horizontal form-margin-for-form-groups", role = "form" })
+    {
+        <div class="input-group">
+            @Html.TextBox("email", null, new { @class = "form-control", placeholder = "Email" })
+            <span class="input-group-btn">
+                <input type="submit" class="btn btn-default" value="Search"/>
+            </span>
+        </div>
+    }
+</div>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Content[0].Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Content[0].FullName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Content[0].UserTier)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Content[0].TotalLogins)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Content[0].RegistrationDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Content[0].LastLoginDate)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.Content)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserTier)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalLogins)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RegistrationDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastLoginDate)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { accountId = item.UserId }, new { @class = "btn btn-sm btn-info" })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div class="text-center">
+    @Html.Pager("LoginStatistic", "ManageAccounts", Model.Pager, new { email = Model.EmailFilter })
+</div>

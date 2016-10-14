@@ -18,13 +18,24 @@ namespace Awesome_Time.Services
             db = context;
         }
 
-        public int RecordAction(UserActionType type)
+        /// <summary>
+        /// Records a user action and returns record Id. Returns 0 when email is invalid.
+        /// </summary>
+        /// <param name="email"></param>
+        /// <param name="type"></param>
+        /// <returns>Id of new record or 0</returns>
+        public int RecordAction(string email, UserActionType type)
         {
-            var userID = HttpContext.Current.User.Identity.GetUserId();
+            var userId = db.Users.FirstOrDefault(x => x.Email == email)?.Id;
+
+            if(String.IsNullOrWhiteSpace(userId))
+            {
+                return 0;
+            }
 
             var newUserAction = new UserAction
             {
-                ApplicationUserId = userID,
+                ApplicationUserId = userId,
                 Date = DateTime.Now,
                 Type = type
             };

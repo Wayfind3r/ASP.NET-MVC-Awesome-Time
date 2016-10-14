@@ -4,10 +4,10 @@
     ViewBag.Title = "Login Statistic";
 }
 
-<h2>Login Statistic</h2>
+<h2 class="text-center">Login Statistic</h2>
 
 <div>
-    @Html.BeginForm("LoginStatistic", "ManageAccounts", FormMethod.Get, new { @class = "form-horizontal form-margin-for-form-groups", role = "form" })
+    @using (Html.BeginForm("LoginStatistic", "ManageAccounts", FormMethod.Get, new { @class = "form-horizontal form-margin-for-form-groups", role = "form" }))
     {
         <div class="input-group">
             @Html.TextBox("email", null, new { @class = "form-control", placeholder = "Email" })
@@ -17,7 +17,7 @@
         </div>
     }
 </div>
-<table class="table">
+<table class="table margin-top-5">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Content[0].Email)

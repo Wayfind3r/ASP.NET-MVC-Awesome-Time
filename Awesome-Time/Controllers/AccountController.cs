@@ -70,21 +70,20 @@ namespace Awesome_Time.Controllers
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
             var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
-
+            
             //Record Login
-            if(result == SignInStatus.Success)
+            if (result == SignInStatus.Success)
             {
-                _actionService.RecordAction(UserActionType.Login);
+                _actionService.RecordAction(model.Email, UserActionType.Login);
             }
             else
             {
-                _actionService.RecordAction(UserActionType.FailedLogin);
+                _actionService.RecordAction(model.Email, UserActionType.FailedLogin);
             }
 
             switch (result)
             {
                 case SignInStatus.Success:
-                    
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");

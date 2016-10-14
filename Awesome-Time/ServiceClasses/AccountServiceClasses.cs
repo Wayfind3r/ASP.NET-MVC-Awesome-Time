@@ -138,7 +138,7 @@ namespace Awesome_Time.ServiceClasses.AccountServiceClasses
         [Display(Name = "Registration Date")]
         public DateTime RegistrationDate { get; set; }
         [Display(Name = "LastLogin Date")]
-        public DateTime LastLoginDate { get; set; }
+        public DateTime? LastLoginDate { get; set; }
     }
 
     

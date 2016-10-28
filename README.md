@@ -1,7 +1,7 @@
 # ASP.NET-MVC-Awesome-Time
 
-ASP.NET MVC Application
-Dependency Injection with Structure Map
-SASS Styling
+  ASP.NET MVC Application
+  Dependency Injection with Structure Map
+  SASS Styling
 
-Features has short descriptions in the Stories folder
+Features have short descriptions in the Stories folder

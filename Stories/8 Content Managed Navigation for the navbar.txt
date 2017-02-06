@@ -1,0 +1,4 @@
+Administrators should be able to manage some content in the top nav-bar:
+
+They should be able to add links, dropdown menus and nested dropdown menus
+Any link including external links can be used

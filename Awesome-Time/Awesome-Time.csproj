@@ -236,8 +236,10 @@
     <Compile Include="DependencyResolution\StructureMapDependencyResolver.cs" />
     <Compile Include="DependencyResolution\StructureMapDependencyScope.cs" />
     <Compile Include="Entities\Article.cs" />
+    <Compile Include="Entities\NavbarContentElement.cs" />
     <Compile Include="Entities\UserAction.cs" />
     <Compile Include="Enumerations\AccountUpdateResult.cs" />
+    <Compile Include="Enumerations\NavbarContentType.cs" />
     <Compile Include="Enumerations\UserActionType.cs" />
     <Compile Include="Enumerations\UserTier.cs" />
     <Compile Include="Extensions\HtmlHelperExtensions.cs" />
@@ -246,6 +248,7 @@
     </Compile>
     <Compile Include="Interfaces\IAccountService.cs" />
     <Compile Include="Interfaces\IArticleService.cs" />
+    <Compile Include="Interfaces\INavbarContentService.cs" />
     <Compile Include="Interfaces\IUserActionService.cs" />
     <Compile Include="Migrations\201609011400533_InitialCreate.cs" />
     <Compile Include="Migrations\201609011400533_InitialCreate.Designer.cs">
@@ -275,9 +278,18 @@
     <Compile Include="Migrations\201609300914466_Added-UserActions.Designer.cs">
       <DependentUpon>201609300914466_Added-UserActions.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702061145510_Added-NavbarContentElement.cs" />
+    <Compile Include="Migrations\201702061145510_Added-NavbarContentElement.Designer.cs">
+      <DependentUpon>201702061145510_Added-NavbarContentElement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702061158273_Updated-NavbarContentElement-Added-Type.cs" />
+    <Compile Include="Migrations\201702061158273_Updated-NavbarContentElement-Added-Type.Designer.cs">
+      <DependentUpon>201702061158273_Updated-NavbarContentElement-Added-Type.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ServiceClasses\AccountServiceClasses.cs" />
     <Compile Include="ServiceClasses\ArticleServiceClasses.cs" />
+    <Compile Include="ServiceClasses\NavbarContentServiceClasses.cs" />
     <Compile Include="ServiceClasses\Pager.cs" />
     <Compile Include="Services\AccountService.cs" />
     <Compile Include="Services\ArticleService.cs" />
@@ -471,6 +483,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="UploadableContent\" />
     <Folder Include="Views\Administrator\" />
   </ItemGroup>
   <ItemGroup>
@@ -500,6 +513,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201609300914466_Added-UserActions.resx">
       <DependentUpon>201609300914466_Added-UserActions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702061145510_Added-NavbarContentElement.resx">
+      <DependentUpon>201702061145510_Added-NavbarContentElement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702061158273_Updated-NavbarContentElement-Added-Type.resx">
+      <DependentUpon>201702061158273_Updated-NavbarContentElement-Added-Type.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

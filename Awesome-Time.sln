@@ -13,6 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Stories", "Stories", "{1041
 		Stories\3 & 4 Admin Area and Account Management.txt = Stories\3 & 4 Admin Area and Account Management.txt
 		Stories\5 & 6 User Tiers and News Articles.txt = Stories\5 & 6 User Tiers and News Articles.txt
 		Stories\7 User Report and Login Data.txt = Stories\7 User Report and Login Data.txt
+		Stories\8 Content Managed Navigation for the navbar.txt = Stories\8 Content Managed Navigation for the navbar.txt
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6EA2C32B-E7E6-417C-B366-85530BD5EB90}"

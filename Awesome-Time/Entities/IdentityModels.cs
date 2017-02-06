@@ -54,5 +54,7 @@ namespace Awesome_Time.Entities
         public virtual DbSet<Article> Articles { get; set; }
 
         public virtual DbSet<UserAction> UserActions { get; set; }
+
+        public virtual DbSet<NavbarContentElement> NavbarContentElements { get; set; }
     }
 }

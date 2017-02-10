@@ -1,6 +1,8 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using Awesome_Time.Enumerations;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Awesome_Time.Entities
 {
@@ -15,5 +17,7 @@ namespace Awesome_Time.Entities
         public int? ParentId { get; set; }
 
         public virtual NavbarContentElement Parent { get; set; }
+        [ForeignKey("ParentId")]
+        public virtual ICollection<NavbarContentElement> Children { get; set; }
     }
 }

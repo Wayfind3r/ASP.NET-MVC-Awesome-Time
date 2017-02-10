@@ -25,9 +25,9 @@ namespace Awesome_Time.Tests.ServiceTests
             // Arrange
             var data = new List<ApplicationUser>
             {
-                new ApplicationUser { Email = "administrator@ggbg.com", RegistrationDate = DateTime.Now.AddMonths(-1)},
-                new ApplicationUser { Email = "administrator@abv.bg", RegistrationDate = DateTime.Now.AddMonths(-3) },
-                new ApplicationUser { Email = "someoneelse@gmail.bg", RegistrationDate = DateTime.Now },
+                new ApplicationUser { Email = "administrator@ggbg.com", RegistrationDate = new DateTime(1980, 1, 1) },
+                new ApplicationUser { Email = "administrator@abv.bg", RegistrationDate = new DateTime(2000, 1, 1) },
+                new ApplicationUser { Email = "someoneelse@gmail.bg", RegistrationDate = new DateTime(2017, 1, 1)  },
             }.AsQueryable();
 
             var dbSetMock = new Mock<IDbSet<ApplicationUser>>();

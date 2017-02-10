@@ -143,7 +143,9 @@
     <Compile Include="Controllers\HomeControllerTest.cs" />
     <Compile Include="ServiceTests\AccountServiceTests.cs" />
     <Compile Include="ServiceTests\ArticleServiceTests.cs" />
+    <Compile Include="ServiceTests\NavbarContentServiceTests.cs" />
     <Compile Include="ServiceTests\UserActionServiceTests.cs" />
+    <Compile Include="Wrappers\NavbarContentServiceWrapper.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />

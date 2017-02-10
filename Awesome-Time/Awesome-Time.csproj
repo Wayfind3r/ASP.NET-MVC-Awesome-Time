@@ -286,6 +286,10 @@
     <Compile Include="Migrations\201702061158273_Updated-NavbarContentElement-Added-Type.Designer.cs">
       <DependentUpon>201702061158273_Updated-NavbarContentElement-Added-Type.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702061335392_Updated-NavbarContentElement-Added-Children.cs" />
+    <Compile Include="Migrations\201702061335392_Updated-NavbarContentElement-Added-Children.Designer.cs">
+      <DependentUpon>201702061335392_Updated-NavbarContentElement-Added-Children.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ServiceClasses\AccountServiceClasses.cs" />
     <Compile Include="ServiceClasses\ArticleServiceClasses.cs" />
@@ -293,6 +297,7 @@
     <Compile Include="ServiceClasses\Pager.cs" />
     <Compile Include="Services\AccountService.cs" />
     <Compile Include="Services\ArticleService.cs" />
+    <Compile Include="Services\NavbarContentService.cs" />
     <Compile Include="Services\UserActionService.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
     <Compile Include="Entities\IdentityModels.cs" />
@@ -519,6 +524,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702061158273_Updated-NavbarContentElement-Added-Type.resx">
       <DependentUpon>201702061158273_Updated-NavbarContentElement-Added-Type.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702061335392_Updated-NavbarContentElement-Added-Children.resx">
+      <DependentUpon>201702061335392_Updated-NavbarContentElement-Added-Children.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -38,6 +38,7 @@ namespace Awesome_Time.DependencyResolution {
                             x.For<IAccountService>().Use<AccountService>();
                             x.For<IArticleService>().Use<ArticleService>();
                             x.For<IUserActionService>().Use<UserActionService>();
+                            x.For<INavbarContentService>().Use<NavbarContentService>();
                         });
             return ObjectFactory.Container;
         }
